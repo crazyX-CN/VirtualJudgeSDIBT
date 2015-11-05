@@ -30,9 +30,9 @@ public class HUSTQuerier extends AuthenticatedQuerier {
         String html = client.get("/solution/source/" + info.remoteRunId, HttpStatusValidator.SC_OK).getBody();
 
         String regex = 
-                "<span class=\"badge\">(.*?)</span>\\s*Result[\\s\\S]*?" +
-                "<span class=\"badge\">(\\d+)ms</span>\\s*Time[\\s\\S]*?" +
-                "<span class=\"badge\">(\\d+)kb</span>\\s*Memory";
+                "<span class=\"badge\">(.*?)</span>\\s*结果[\\s\\S]*?" +
+                "<span class=\"badge\">(\\d+)ms</span>\\s*耗时[\\s\\S]*?" +
+                "<span class=\"badge\">(\\d+)kb</span>\\s* 内存";
         Matcher matcher = Pattern.compile(regex).matcher(html);
         Validate.isTrue(matcher.find());
         
