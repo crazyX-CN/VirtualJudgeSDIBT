@@ -31,12 +31,18 @@ public class AizuSubmitter extends CanonicalSubmitter {
     @Override
     protected Integer getMaxRunId(SubmissionInfo info, DedicatedHttpClient client, boolean submitted) {
         String html = client.get("/onlinejudge/status.jsp").getBody();
-        Matcher matcher = Pattern.compile("runID=(\\d+)(?:[\\s\\S](?!/tr))*>" + info.remoteAccountId + "<(?:[\\s\\S](?!/tr))*description\\.jsp\\?id=" + info.remoteProblemId).matcher(html);
+        //Matcher matcher = Pattern.compile("runID=(\\d+)(?:[\\s\\S](?!/tr))*>" + info.remoteAccountId + "<(?:[\\s\\S](?!/tr))*description\\.jsp\\?id=" + 
+        //info.remoteProblemId).matcher(html);
+         Matcher matcher = Pattern.compile(
+                "<td.*?><a href=.*?>(.*?)</a></td>[\\s\\S]*?"+
+                "<td[\\s\\S]*?>"+info.remoteAccountId +"[\\s\\S]*?"+
+                "<(?:[\\s\\S](?!/tr))*description\\.jsp\\?id=" + info.remoteProblemId
+            ).matcher(html);
         return matcher.find() ? Integer.parseInt(matcher.group(1)) : -1;
     }
-
     @Override
     protected String submitCode(SubmissionInfo info, RemoteAccount remoteAccount, DedicatedHttpClient client) {
+        //标记一个bug，lessonId 缺少 小部分题目无法提交
         HttpEntity entity = SimpleNameValueEntityFactory.create(
             "language", info.remotelanguage, //
             "password", remoteAccount.getPassword(), //

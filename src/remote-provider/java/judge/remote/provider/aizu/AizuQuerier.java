@@ -26,22 +26,16 @@ public class AizuQuerier extends SyncQuerier {
     @Override
     protected SubmissionRemoteStatus query(SubmissionInfo info) {
         DedicatedHttpClient client = dedicatedHttpClientFactory.build(getOjInfo().mainHost, null, getOjInfo().defaultChaset);
-        
         String html = client.get("/onlinejudge/status.jsp").getBody();
-        String regex =
-                "<td.*?#" + info.remoteRunId + "[\\s\\S]*?" +
+        String regex ="<td.*?><a href=.*?>"+info.remoteRunId+"</a></td>[\\s\\S]*?"+
+                "<td[\\s\\S]*?>"+info.remoteAccountId +"[\\s\\S]*?"+
                 "<td[\\s\\S]*?" +
-                "<td.*?" + info.remoteAccountId + "[\\s\\S]*?" +
-                "<td[\\s\\S]*?" +
-                "<td[\\s\\S]*?" +
-                "<td.*?icon\\w+\">:([\\s\\S]*?)</span>[\\s\\S]*?" +
+                "<td.*?icon\\w+\">: <a href=.*?>([\\s\\S]*?)</a></span>[\\s\\S]*?" +
                 "<td.*?>.*?</td>[\\s\\S]*?" +
                 "<td.*?>.*?</td>[\\s\\S]*?" +
                 "<td.*?>.*?</td>[\\s\\S]*?" +
                 "<td.*?>(.*?)</td>[\\s\\S]*?" +
-                "<td.*?>(.*?)</td>[\\s\\S]*?" +
-                "<td.*?>.*?</td>[\\s\\S]*?" +
-                "<td.*?>.*?</td>[\\s\\S]*?";
+                "<td.*?>(.*?)</td>[\\s\\S]*?" ;
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(html);
         Validate.isTrue(matcher.find());
