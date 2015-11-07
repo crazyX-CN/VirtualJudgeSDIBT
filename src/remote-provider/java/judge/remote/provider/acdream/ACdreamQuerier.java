@@ -1,5 +1,8 @@
 package judge.remote.provider.acdream;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import judge.httpclient.DedicatedHttpClient;
@@ -14,25 +17,18 @@ import judge.remote.submitter.SubmissionInfo;
 import org.apache.struts2.json.JSONException;
 import org.springframework.stereotype.Component;
 
+import org.apache.commons.lang3.Validate;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component
 public class ACdreamQuerier extends AuthenticatedQuerier {
 
-    private static final Map<String, String> statusMap = new HashMap<String, String>() {{
-        put("0", "Pending...");
-        put("1", "Running...");
-        put("2", "Accepted");
-        put("3", "Presentation Error");
-        put("4", "Time Limit Exceeded");
-        put("5", "Memory Limit Exceeded");
-        put("6", "Wrong Answer");
-        put("7", "Output Limit Exceeded");
-        put("8", "Compilation Error");
-        put("13", "Dangerous Code");
-        put("14", "System Error");
-    }};
+
+    private final static Logger log = LoggerFactory.getLogger(ACdreamQuerier.class);
 
     @Override
     public RemoteOjInfo getOjInfo() {
@@ -41,28 +37,47 @@ public class ACdreamQuerier extends AuthenticatedQuerier {
 
     @Override
     protected SubmissionRemoteStatus query(SubmissionInfo info, RemoteAccount remoteAccount, DedicatedHttpClient client) throws JSONException {
-        String html = client.post("/status/info", SimpleNameValueEntityFactory.create(
-                "rid", info.remoteRunId
-        )).getBody();
 
-        Map<String, String> json = new Gson().fromJson(html, new TypeToken<HashMap<String, String>>() {
-        }.getType());
-        String result = json.get("result");
-        int time = Integer.parseInt(json.get("time"));
-        int memory = Integer.parseInt(json.get("memory"));
+        String html = client.get("/status?name="+info.remoteAccountId+"&pid="+info.remoteProblemId).getBody();
+
+        log.info(html);
+        log.info(info.remoteAccountId);
+        log.info(info.remoteProblemId);
+        log.info(info.remoteRunId);
+
+        Pattern pattern = Pattern.compile("<tr class=.*?><td>"+info.remoteRunId+
+            "</td><td><a .*?>"+info.remoteAccountId+
+            "</a></td><td><a .*?>"+info.remoteProblemId+
+            "</a></td><td .*?>(.*?)</td><td>(.*?) MS</td><td>(.*?) KB</td>");
+        Matcher matcher = pattern.matcher(html);
+
+        log.info(matcher.group(1));
+        Validate.isTrue(matcher.find());
 
         SubmissionRemoteStatus status = new SubmissionRemoteStatus();
-        status.rawStatus = statusMap.containsKey(result) ? statusMap.get(result) : "Runtime Error";
+        status.rawStatus = matcher.group(1).replaceAll("<[^<>]*>", "").trim();
         status.statusType = SubstringNormalizer.DEFAULT.getStatusType(status.rawStatus);
+        
         if (status.statusType == RemoteStatusType.AC) {
-            status.executionMemory = memory;
-            status.executionTime = time;
-        } else if (status.statusType == RemoteStatusType.CE) {
-            status.compilationErrorInfo = "<pre>" + client.post("/status/CE", SimpleNameValueEntityFactory.create(
-                    "rid", info.remoteRunId
-            )).getBody() + "</pre>";
+            status.executionTime = calcTime(matcher.group(2));
+            status.executionMemory = calcMemory(matcher.group(3));
         }
         return status;
     }
 
+    private int calcTime(String str) {
+        Matcher matcher = Pattern.compile("(\\d+)").matcher(str);
+        if (matcher.find()) {
+            Integer a = Integer.parseInt(matcher.group(1), 10);
+            return a ;
+        }else return 0;
+    }
+    
+    private int calcMemory(String str) {
+        Matcher matcher = Pattern.compile("(\\d+)").matcher(str);
+        if (matcher.find()) {
+            Integer a = Integer.parseInt(matcher.group(1), 10);
+            return a ;
+        }else return 0;
+    }
 }

@@ -32,7 +32,9 @@ public class ACdreamSubmitter extends CanonicalSubmitter {
     @Override
     protected Integer getMaxRunId(SubmissionInfo info, DedicatedHttpClient client, boolean submitted) {
         String html = client.get("/status?name=" + info.remoteAccountId + "&pid=" + info.remoteProblemId).getBody();
-        Matcher matcher = Pattern.compile("class=\"\\w+\"><td>(\\d{5,})</td>").matcher(html);
+       // Matcher matcher = Pattern.compile("class=\"\\w+\"><td>(\\d{5,})</td>").matcher(html);
+        Matcher matcher = Pattern.compile("<tr class=.*?><td>(.*?)</td><td><a title=.*? href=.*? class=.*?>"+
+                info.remoteAccountId+"</a></td><td><a href=.*?>"+info.remoteProblemId+"</a>").matcher(html);
         return matcher.find() ? Integer.parseInt(matcher.group(1)) : -1;
     }
 
@@ -46,7 +48,7 @@ public class ACdreamSubmitter extends CanonicalSubmitter {
         client.post("/submit", entity, new SimpleHttpResponseValidator() {
             @Override
             public void validate(SimpleHttpResponse response) throws Exception {
-                Validate.isTrue(StringUtils.isEmpty(response.getBody()));
+                Validate.isTrue(!StringUtils.isEmpty(response.getBody()));
             }
         });
         return null;
