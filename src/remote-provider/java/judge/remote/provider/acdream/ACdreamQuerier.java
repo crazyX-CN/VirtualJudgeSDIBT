@@ -51,18 +51,25 @@ public class ACdreamQuerier extends AuthenticatedQuerier {
             "</a></td><td .*?>(.*?)</td><td>(.*?) MS</td><td>(.*?) KB</td>");
         Matcher matcher = pattern.matcher(html);
 
-        log.info(matcher.group(1));
-        Validate.isTrue(matcher.find());
-
         SubmissionRemoteStatus status = new SubmissionRemoteStatus();
-        status.rawStatus = matcher.group(1).replaceAll("<[^<>]*>", "").trim();
-        status.statusType = SubstringNormalizer.DEFAULT.getStatusType(status.rawStatus);
-        
-        if (status.statusType == RemoteStatusType.AC) {
-            status.executionTime = calcTime(matcher.group(2));
-            status.executionMemory = calcMemory(matcher.group(3));
+        if (matcher.find()){
+                log.info(matcher.group(1));
+                Validate.isTrue(true);
+
+                status.rawStatus = matcher.group(1).replaceAll("<[^<>]*>", "").trim();
+                status.statusType = SubstringNormalizer.DEFAULT.getStatusType(status.rawStatus);
+                
+                if (status.statusType == RemoteStatusType.AC) {
+                    status.executionTime = calcTime(matcher.group(2));
+                    status.executionMemory = calcMemory(matcher.group(3));
+                }
+                return status;
         }
-        return status;
+        else{
+            Validate.isTrue(false);
+            return status;
+        }
+        
     }
 
     private int calcTime(String str) {
