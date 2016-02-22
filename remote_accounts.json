@@ -1,0 +1,534 @@
+{
+    LightOJ :
+    {
+    	contextNumber : 1, // default value is 1
+    	accounts :
+    	[
+    		{
+    			id : "xiao@hotmail.it",
+    			password : "sdibtsdibt",
+    			isPublic : true // default value is true
+    		},
+    		{
+    			id : "sdibt1@126.com",
+    			password : "sdibtsdibt" 
+    		},
+            {
+                id : "sdibt2@126.com",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3@126.com",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4@126.com",
+                password : "sdibtsdibt"
+            }
+    	]
+    },
+
+    SDIBT :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "vjudge1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "vjudge2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "vjudge3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "vjudge4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "vjudge5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    HUST :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    POJ :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    ZOJ :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    SPOJ :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    UVALive :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "26833IZ",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "26834JL",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "26835LO",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "26836LX",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "26837OO",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    UVA :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    SGU :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "043195",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "043198",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "043197",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "043199",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "043200",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    HDU :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    HYSBZ :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    CodeForces :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    Aizu :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    NBUT :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    FZU :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    CSU :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    SCU :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    UESTC :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "sdibt1",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt2",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt3",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt4",
+                password : "sdibtsdibt"
+            },
+            {
+                id : "sdibt5",
+                password : "sdibtsdibt"
+            }
+        ]
+    },
+
+    URAL :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {  id : "101783RN"  },
+            {  id : "125720WF"  },
+            {  id : "125721YR"  },
+            {  id : "125722EM"  },
+            {  id : "125724WY"  }
+        ]
+    },
+
+    ACdream :
+    {
+        contextNumber : 5,
+        accounts :
+        [
+            {
+                id : "id1",
+                password : "123456"
+            }
+        ]
+    }
+
+
+}
+
