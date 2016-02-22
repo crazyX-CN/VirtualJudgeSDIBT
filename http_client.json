@@ -1,9 +1,9 @@
 {
-    socket_timeout : 30000,
-    connection_timeout : 30000,
-    max_conn_total : 200,
-    max_conn_per_route : 40,
-    user_agent : "Virtual Judge robot",
+    "socket_timeout" : 30000,
+    "connection_timeout" : 30000,
+    "max_conn_total" : 200,
+    "max_conn_per_route" : 40,
+    "user_agent" : "Virtual Judge robot",
     "proxies" :
     [
         ["direct"]
