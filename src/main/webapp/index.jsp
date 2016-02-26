@@ -19,8 +19,6 @@
             <p>
                 Virtual Judge is not a real online judge. It can grab problems from other regular online judges and simulate submissions to other online judges.
                 It aims to enable holding contests when you don't have the test data.<br /><br />
-                I am Jingwei Xu,i get and modify this open source project from github in order to study ACM better,it is obviously for the deeper knowledge discovery in JS and web crawler.<br />
-                Stay hungry. Stay foolish. Just Fight!<br /><br />
                 Currently, this system supports the following online judges:<br />
             </p>
             
@@ -50,7 +48,6 @@
             <div style="line-height:20px;padding-top:5px;clear:both;">
                 <p>What's new:</p>
                 <ul>
-                    <li>2016-02-26  The very moment of raising beginner’s mind is the accomplishment of true awakening itself.<br />Thanks to all people who contribute to the Vjudge.<br />The following are the original author</li>
                     <li>2014-10-15  UI update. Please <a href="mailto:is.un@qq.com">contact me</a> if you find any bugs. Thanks very much!</li>
                     <li >
                         2014-09-20  Currently Virtual Judge has two access address:<br />

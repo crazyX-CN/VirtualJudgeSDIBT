@@ -4,7 +4,7 @@
 <div id='cssmenu'>
 <ul>
     <li id="nav_home"><a href="${contextPath}/toIndex.action">Home</a></li>
-    <li id="nav_blog"><a href=http://jingwei.site>W.X.BLOG</a></li>
+    <li id="nav_oj"><a href=http://acm.sdibt.edu.cn/JudgeOnline>Online Judge</a></li>
     <li id="nav_problem"><a href="${contextPath}/problem/toListProblem.action">Problem</a></li>
     <li id="nav_status"><a href="${contextPath}/problem/status.action">Status</a></li>
     <li id="nav_contest" class='has-sub'><a href="${contextPath}/contest/toListContest.action">Contest</a>
